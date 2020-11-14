@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>io.github.keming</groupId>
+	<artifactId>autolayout</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>AutoLayout</name>
+	<description>Dynamically convert structured data into flat layout with a user-specified manner. flat display of Any structured data become possible. Support structure data searching, make sure search results remain similar to the interface style.</description>
+
+	<properties>
+		<!-- Adapt this to a version found on https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-maven-plugin/ -->
+		<jettyVersion>8.2.0.v20160908</jettyVersion>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+	</properties>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>${jettyVersion}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-jmx -->
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-jmx</artifactId>
+			<version>8.2.0.v20160908</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-servlet -->
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-servlet</artifactId>
+			<version>8.2.0.v20160908</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/example-jetty-embedded -->
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>example-jetty-embedded</artifactId>
+			<version>8.2.0.v20160908</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<systemPropertyVariables>
+						<java.runtime.version>1.8</java.runtime.version>
+					</systemPropertyVariables>
+					<mainClass>io.github.keming.httpd.RunJava</mainClass>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,803 @@
+
+<!DOCTYPE html>
+<html style="border: 0px dotted">
+<meta http-equiv="content-type" content="text/html; charset=GB2312">
+<head>
+<title>Smart Monitor 1.0</title>
+<link rel="stylesheet" type="text/css" href="/css/layout.css">
+<link rel="stylesheet" type="text/css" href="/css/jstree_style.css">
+<link rel="stylesheet" type="text/css" href="/css/reset.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<script src="/js/layout.js"></script>
+<script src="/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript">
+	function setScrollTop(obj) {
+		print(obj);
+		obj.scrollTop(getCookie('centerScrollTop'));
+	}
+
+	$(document).ready(function() {
+		$("#center").scrollTop(getCookie("centerScrollTop"));
+	});
+</script>
+
+</head>
+<body style="margin: 2px; border: 0px dotted; overflow: hidden;"
+	ryt13370="1">
+	<script src="/Highcharts/js/highcharts.js"></script>
+	<script src="/Highcharts/js/modules/exporting.js"></script>
+
+	<div id="container"
+		style="width: 100%; border: 0px solid; margin: 0px; vertical-align: bottom;">
+
+		<nav id="smnav" class="navbar navbar-default smnav" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#"> <img class="navlogo"
+						src="images/IBM-LOGO-300x156.jpg"
+						onclick="window.location='?cmd=top'" width="100"
+						style="z-index: 0;">
+					</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<!-- 
+						<li LOG-Active}><a href="#">LOG</a></li>
+						<li LPAR-Active}><a href="#">LPAR</a></li>
+						<li Component-Active}><a href="#">Component</a></li>
+						 -->
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown">LPAR View <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+								<li onclick="changView('Component')"><a href="#">Component</a></li>
+								<li class="disabled"><a href="#">LPAR</a></li>
+								<li onclick="changView('LOG')"><a href="#">LOG</a></li>
+							</ul></li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<div class="btn-group"
+								style="padding-top: 6px; padding-bottom: 6px">
+								<!-- 
+								<button type="button" class="btn btn-default" onclick="displayMatchedOnly(false)">Browse-Search</button>
+								<button type="button" class="btn btn-default">List-Form</button>
+								<button type="button" class="btn btn-default">Tab-Tree</button>
+								 -->
+								<button type="button" class="btn btn-default"
+									onclick="displayMatchedOnly(true)">Search</button>
+								<button type="button" class="btn btn-default"
+									onclick="displayForm(true)">Form</button>
+								<button type="button" class="btn btn-default"
+									onclick="enableSwitch(false)">Tree</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+
+		<div id="centerFrame" class="smcontent navbar-default">
+			<div id="center"
+				onscroll="setCookie('centerScrollTop', this.scrollTop, 1)"
+				style="height: 680px; width: centerWidth">
+				<div id="CategoryGrid"
+					class="tabdisplay jstree jstree-0 jstree-default jstree-focused">
+					<div id="CategoryGrid"
+						class="demo jstree jstree-0 jstree-default jstree-focused">
+						<ins class="jstree-icon">&nbsp;</ins>
+						<ul class="nav nav-tabs">
+							<li id=activetab0 class="active"><a
+								href="?cmd=top&subcommand=set&selected=0&nodeid=0">*#ORIGINAL
+							</a></li>
+							<li><a href="?cmd=top&subcommand=set&selected=1&nodeid=0">#ATTRIBUTES
+							</a></li>
+							<li><a href="?cmd=top&subcommand=set&selected=2&nodeid=0">#UPDATE
+							</a></li>
+							<li><a href="?cmd=top&subcommand=set&selected=3&nodeid=0">#QUERY
+							</a></li>
+						</ul>
+						<div class="navBody">
+							<ul class="treegrid jstree-closed">
+								<li><ins class="jstree-icon">&nbsp;</ins><a
+									href="?cmd=top&cwd=5">172.16.15.41 </a>/
+									<ul class="nav nav-tabs">
+										<li id=activetab1 class="active"><a
+											href="?cmd=top&subcommand=set&selected=0&nodeid=5">*SVRP7720-01-SN10418EP
+										</a></li>
+										<li><a
+											href="?cmd=top&subcommand=set&selected=1&nodeid=5">SVRP7740-12-SN06D05AP
+										</a></li>
+										<li><a
+											href="?cmd=top&subcommand=set&selected=2&nodeid=5">SVRP7750-05-SN062DA7P
+										</a></li>
+										<li><a
+											href="?cmd=top&subcommand=set&selected=3&nodeid=5">SVRP7780-05-SN0681F3P
+										</a></li>
+										<li><a
+											href="?cmd=top&subcommand=set&selected=4&nodeid=5">SVRP7720-06-SN064E9ER
+										</a></li>
+										<li><a
+											href="?cmd=top&subcommand=set&selected=5&nodeid=5">SVRP7750-11-SN0681F7P
+										</a></li>
+									</ul>
+									<div class="navBody">
+										<ul class="treegrid jstree-closed">
+											<li><ins class="jstree-icon">&nbsp;</ins>
+												<ul class="nav nav-tabs">
+													<li id=activetab2 class="active"><a
+														href="?cmd=top&subcommand=set&selected=0&nodeid=6">*Status
+													</a></li>
+													<li><a
+														href="?cmd=top&subcommand=set&selected=1&nodeid=6">Physical
+													</a></li>
+													<li><a
+														href="?cmd=top&subcommand=set&selected=2&nodeid=6">Virtual
+													</a></li>
+													<li><a
+														href="?cmd=top&subcommand=set&selected=3&nodeid=6">Hybird
+													</a></li>
+												</ul>
+												<div class="navBody">
+													<ul class="treegrid jstree-closed">
+														<li><ins class="jstree-icon">&nbsp;</ins><b><a
+																href="?cmd=top&cwd=7">Status </a></b>
+															<ul
+																style="margin-left: 1.5em; padding-left: 0; margin-top: .5embackground-color:#cccccc">
+																<li class="jstree-closed"><ins class="jstree-icon">&nbsp;</ins><a
+																	href="?cmd=top&cwd=8">LPAR </a></li>
+																<li>
+																<ul class="jstree-no-dots"
+																		style="margin-left: 2.5em; padding-left: 0;">
+																		<li>
+																			<table class="table table-striped">
+																				<thead>
+																					<tr>
+																						<th><span class="tablehead">name</span></th>
+																						<th><span class="tablehead">LPAR</span></th>
+																						<th><span class="tablehead">lpar_env</span></th>
+																						<th><span class="tablehead">state</span></th>
+																						<th><span class="tablehead">resource_config</span></th>
+																						<th><span class="tablehead">os_version</span></th>
+																						<th><span class="tablehead">logical_serial_num</span></th>
+																						<th><span class="tablehead">default_profile</span></th>
+																						<th><span class="tablehead">COL14763</span></th>
+																						<th><span class="tablehead">COL14719</span></th>
+																						<th><span class="tablehead">COL14675</span></th>
+																						<th><span class="tablehead">curr_profile</span></th>
+																						<th><span class="tablehead">work_group_id</span></th>
+																						<th><span class="tablehead">shared_proc_pool_util_auth</span></th>
+																						<th><span class="tablehead">boot_mode</span></th>
+																						<th><span class="tablehead">allow_perf_collection</span></th>
+																						<th><span class="tablehead">power_ctrl_lpar_ids</span></th>
+																						<th><span class="tablehead">lpar_keylock</span></th>
+																						<th><span class="tablehead">auto_start</span></th>
+																						<th><span class="tablehead">redundant_err_path_reporting</span></th>
+																						<th><span class="tablehead">rmc_state</span></th>
+																						<th><span class="tablehead">rmc_ipaddr</span></th>
+																						<th><span class="tablehead">msp</span></th>
+																						<th><span class="tablehead">time_ref</span></th>
+																						<th><span class="tablehead">lpar_avail_priority</span></th>
+																						<th><span class="tablehead">desired_lpar_proc_compat_mode</span></th>
+																						<th><span class="tablehead">curr_lpar_proc_compat_mode</span></th>
+																					</tr>
+																				</thead>
+																				<tbody>
+																					<tr>
+																						<td><span style="color: #003333">P720_01_VIOS
+																						</span></td>
+																						<td><span style="color: #003333">P720_01_VIOS(1)
+																						</span></td>
+																						<td><span style="color: #003333">vioserver
+																						</span></td>
+																						<td><span style="color: #003333">Running
+																						</span></td>
+																						<td><span style="color: #003333">1 </span></td>
+																						<td><span style="color: #003333">AIX
+																								6.1 6100-08-00-0000 </span></td>
+																						<td><span style="color: #003333">10418EP1
+																						</span></td>
+																						<td><span style="color: #003333">P720_01_VIOS
+																						</span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">P720_01_VIOS
+																						</span></td>
+																						<td><span style="color: #003333">none
+																						</span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">none
+																						</span></td>
+																						<td><span style="color: #003333">norm
+																						</span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">active
+																						</span></td>
+																						<td><span style="color: #003333">172.16.15.115
+																						</span></td>
+																						<td><span style="color: #003333">1 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">191 </span></td>
+																						<td><span style="color: #003333">default
+																						</span></td>
+																						<td><span style="color: #003333">POWER7
+																						</span></td>
+																					</tr>
+																					<tr>
+																						<td><span style="color: #003333">P720_02_VIOS
+																						</span></td>
+																						<td><span style="color: #003333">P720_02_VIOS(2)
+																						</span></td>
+																						<td><span style="color: #003333">vioserver
+																						</span></td>
+																						<td><span style="color: #003333">Not
+																								Activated </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">Unknown
+																						</span></td>
+																						<td><span style="color: #003333">10418EP2
+																						</span></td>
+																						<td><span style="color: #003333">P720_02_VIOS
+																						</span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">curr_profile
+																						</span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">none
+																						</span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">none
+																						</span></td>
+																						<td><span style="color: #003333">norm
+																						</span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">none
+																						</span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">191 </span></td>
+																						<td><span style="color: #003333">default
+																						</span></td>
+																						<td><span style="color: #003333">POWER7
+																						</span></td>
+																					</tr>
+																					<tr>
+																						<td><span style="color: #003333">P720_VIOC_TEST
+																						</span></td>
+																						<td><span style="color: #003333">P720_VIOC_TEST(3)
+																						</span></td>
+																						<td><span style="color: #003333">aixlinux
+																						</span></td>
+																						<td><span style="color: #003333">Not
+																								Activated </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">Unknown
+																						</span></td>
+																						<td><span style="color: #003333">10418EP3
+																						</span></td>
+																						<td><span style="color: #003333">default
+																						</span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">curr_profile
+																						</span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">none
+																						</span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">norm
+																						</span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">none
+																						</span></td>
+																						<td><span style="color: #003333">norm
+																						</span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">none
+																						</span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">127 </span></td>
+																						<td><span style="color: #003333">default
+																						</span></td>
+																						<td><span style="color: #003333">POWER7
+																						</span></td>
+																					</tr>
+																					<tr>
+																						<td><span style="color: #003333">test
+																						</span></td>
+																						<td><span style="color: #003333">test(4)
+																						</span></td>
+																						<td><span style="color: #003333">aixlinux
+																						</span></td>
+																						<td><span style="color: #003333">Not
+																								Activated </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">Unknown
+																						</span></td>
+																						<td><span style="color: #003333">10418EP4
+																						</span></td>
+																						<td><span style="color: #003333">test
+																						</span></td>
+																						<td><span style="color: #003333">curr_profile
+																						</span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">none
+																						</span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">norm
+																						</span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">none
+																						</span></td>
+																						<td><span style="color: #003333">norm
+																						</span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">none
+																						</span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">127 </span></td>
+																						<td><span style="color: #003333">default
+																						</span></td>
+																						<td><span style="color: #003333">POWER7
+																						</span></td>
+																					</tr>
+																				</tbody>
+																			</table>
+																			<div style="height: 0.8em">&nbsp;</div>
+																		</li>
+																	</ul></li>
+																<li class="jstree-last jstree-leaf">
+																<ul class="jstree-no-dots"
+																		style="margin-left: 2.5em; padding-left: 0;">
+																		<li>
+																			<table class="table table-striped">
+																				<thead>
+																					<tr>
+																						<th><span class="tablehead">time</span></th>
+																						<th><span class="tablehead">event_type</span></th>
+																						<th><span class="tablehead">resource_type</span></th>
+																						<th><span class="tablehead">sys_time</span></th>
+																						<th><span class="tablehead">time_cycles</span></th>
+																						<th><span class="tablehead">LPAR</span></th>
+																						<th><span class="tablehead">curr_proc_mode</span></th>
+																						<th><span class="tablehead">curr_proc_units</span></th>
+																						<th><span class="tablehead">curr_procs</span></th>
+																						<th><span class="tablehead">curr_sharing_mode</span></th>
+																						<th><span class="tablehead">curr_uncap_weight</span></th>
+																						<th><span class="tablehead">curr_shared_proc_pool_name</span></th>
+																						<th><span class="tablehead">curr_shared_proc_pool_id</span></th>
+																						<th><span class="tablehead">curr_5250_cpw_percent</span></th>
+																						<th><span class="tablehead">mem_mode</span></th>
+																						<th><span class="tablehead">curr_mem</span></th>
+																						<th><span class="tablehead">entitled_cycles</span></th>
+																						<th><span class="tablehead">capped_cycles</span></th>
+																						<th><span class="tablehead">uncapped_cycles</span></th>
+																						<th><span class="tablehead">shared_cycles_while_active</span></th>
+																						<th><span class="tablehead">idle_cycles</span></th>
+																						<th><span class="tablehead">run_latch_instructions</span></th>
+																						<th><span class="tablehead">run_latch_cycles</span></th>
+																					</tr>
+																				</thead>
+																				<tbody>
+																					<tr>
+																						<td><span style="color: #003333">04/07/2014
+																								15:34:15 </span></td>
+																						<td><span style="color: #003333">sample
+																						</span></td>
+																						<td><span style="color: #003333">lpar
+																						</span></td>
+																						<td><span style="color: #003333">04/07/2014
+																								15:28:33 </span></td>
+																						<td><span style="color: #003333">7971172798555336
+																						</span></td>
+																						<td><span style="color: #003333">test(4)
+																						</span></td>
+																						<td><span style="color: #003333">ded </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">share_idle_procs
+																						</span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">0.0 </span></td>
+																						<td><span style="color: #003333">ded </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																					</tr>
+																					<tr>
+																						<td><span style="color: #003333">04/07/2014
+																								15:34:15 </span></td>
+																						<td><span style="color: #003333">sample
+																						</span></td>
+																						<td><span style="color: #003333">lpar
+																						</span></td>
+																						<td><span style="color: #003333">04/07/2014
+																								15:28:33 </span></td>
+																						<td><span style="color: #003333">7971172798555336
+																						</span></td>
+																						<td><span style="color: #003333">P720_VIOC_TEST(3)
+																						</span></td>
+																						<td><span style="color: #003333">ded </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">share_idle_procs
+																						</span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">0.0 </span></td>
+																						<td><span style="color: #003333">ded </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																					</tr>
+																					<tr>
+																						<td><span style="color: #003333">04/07/2014
+																								15:34:15 </span></td>
+																						<td><span style="color: #003333">sample
+																						</span></td>
+																						<td><span style="color: #003333">lpar
+																						</span></td>
+																						<td><span style="color: #003333">04/07/2014
+																								15:28:33 </span></td>
+																						<td><span style="color: #003333">7971172798555336
+																						</span></td>
+																						<td><span style="color: #003333">P720_02_VIOS(2)
+																						</span></td>
+																						<td><span style="color: #003333">ded </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">share_idle_procs
+																						</span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">0.0 </span></td>
+																						<td><span style="color: #003333">ded </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																					</tr>
+																					<tr>
+																						<td><span style="color: #003333">04/07/2014
+																								15:34:15 </span></td>
+																						<td><span style="color: #003333">sample
+																						</span></td>
+																						<td><span style="color: #003333">lpar
+																						</span></td>
+																						<td><span style="color: #003333">04/07/2014
+																								15:28:33 </span></td>
+																						<td><span style="color: #003333">7971172798555336
+																						</span></td>
+																						<td><span style="color: #003333">P720_01_VIOS(1)
+																						</span></td>
+																						<td><span style="color: #003333">shared
+																						</span></td>
+																						<td><span style="color: #003333">0.4 </span></td>
+																						<td><span style="color: #003333">2 </span></td>
+																						<td><span style="color: #003333">uncap
+																						</span></td>
+																						<td><span style="color: #003333">200 </span></td>
+																						<td><span style="color: #003333">DefaultPool
+																						</span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0.0 </span></td>
+																						<td><span style="color: #003333">ded </span></td>
+																						<td><span style="color: #003333">4096
+																						</span></td>
+																						<td><span style="color: #003333">2366788982670284
+																						</span></td>
+																						<td><span style="color: #003333">64829795870570
+																						</span></td>
+																						<td><span style="color: #003333">2737484271302
+																						</span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">35909992346552
+																						</span></td>
+																						<td><span style="color: #003333">79896168883689
+																						</span></td>
+																						<td><span style="color: #003333">211604740621039
+																						</span></td>
+																					</tr>
+																					<tr>
+																						<td><span style="color: #003333">04/07/2014
+																								15:33:14 </span></td>
+																						<td><span style="color: #003333">sample
+																						</span></td>
+																						<td><span style="color: #003333">lpar
+																						</span></td>
+																						<td><span style="color: #003333">04/07/2014
+																								15:27:32 </span></td>
+																						<td><span style="color: #003333">7971141529168438
+																						</span></td>
+																						<td><span style="color: #003333">test(4)
+																						</span></td>
+																						<td><span style="color: #003333">ded </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">share_idle_procs
+																						</span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">0.0 </span></td>
+																						<td><span style="color: #003333">ded </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																					</tr>
+																					<tr>
+																						<td><span style="color: #003333">04/07/2014
+																								15:33:14 </span></td>
+																						<td><span style="color: #003333">sample
+																						</span></td>
+																						<td><span style="color: #003333">lpar
+																						</span></td>
+																						<td><span style="color: #003333">04/07/2014
+																								15:27:32 </span></td>
+																						<td><span style="color: #003333">7971141529168438
+																						</span></td>
+																						<td><span style="color: #003333">P720_VIOC_TEST(3)
+																						</span></td>
+																						<td><span style="color: #003333">ded </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">share_idle_procs
+																						</span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">0.0 </span></td>
+																						<td><span style="color: #003333">ded </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																					</tr>
+																					<tr>
+																						<td><span style="color: #003333">04/07/2014
+																								15:33:14 </span></td>
+																						<td><span style="color: #003333">sample
+																						</span></td>
+																						<td><span style="color: #003333">lpar
+																						</span></td>
+																						<td><span style="color: #003333">04/07/2014
+																								15:27:32 </span></td>
+																						<td><span style="color: #003333">7971141529168438
+																						</span></td>
+																						<td><span style="color: #003333">P720_02_VIOS(2)
+																						</span></td>
+																						<td><span style="color: #003333">ded </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">share_idle_procs
+																						</span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">0.0 </span></td>
+																						<td><span style="color: #003333">ded </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																					</tr>
+																					<tr>
+																						<td><span style="color: #003333">04/07/2014
+																								15:33:14 </span></td>
+																						<td><span style="color: #003333">sample
+																						</span></td>
+																						<td><span style="color: #003333">lpar
+																						</span></td>
+																						<td><span style="color: #003333">04/07/2014
+																								15:27:32 </span></td>
+																						<td><span style="color: #003333">7971141529168438
+																						</span></td>
+																						<td><span style="color: #003333">P720_01_VIOS(1)
+																						</span></td>
+																						<td><span style="color: #003333">shared
+																						</span></td>
+																						<td><span style="color: #003333">0.4 </span></td>
+																						<td><span style="color: #003333">2 </span></td>
+																						<td><span style="color: #003333">uncap
+																						</span></td>
+																						<td><span style="color: #003333">200 </span></td>
+																						<td><span style="color: #003333">DefaultPool
+																						</span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0.0 </span></td>
+																						<td><span style="color: #003333">ded </span></td>
+																						<td><span style="color: #003333">4096
+																						</span></td>
+																						<td><span style="color: #003333">2366776474915545
+																						</span></td>
+																						<td><span style="color: #003333">64829531448448
+																						</span></td>
+																						<td><span style="color: #003333">2737484271302
+																						</span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">35909848460736
+																						</span></td>
+																						<td><span style="color: #003333">79895893191088
+																						</span></td>
+																						<td><span style="color: #003333">211603982395630
+																						</span></td>
+																					</tr>
+																					<tr>
+																						<td><span style="color: #003333">04/07/2014
+																								15:32:12 </span></td>
+																						<td><span style="color: #003333">sample
+																						</span></td>
+																						<td><span style="color: #003333">lpar
+																						</span></td>
+																						<td><span style="color: #003333">04/07/2014
+																								15:26:30 </span></td>
+																						<td><span style="color: #003333">7971109999532927
+																						</span></td>
+																						<td><span style="color: #003333">test(4)
+																						</span></td>
+																						<td><span style="color: #003333">ded </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">share_idle_procs
+																						</span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">0.0 </span></td>
+																						<td><span style="color: #003333">ded </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																					</tr>
+																					<tr>
+																						<td><span style="color: #003333">04/07/2014
+																								15:32:12 </span></td>
+																						<td><span style="color: #003333">sample
+																						</span></td>
+																						<td><span style="color: #003333">lpar
+																						</span></td>
+																						<td><span style="color: #003333">04/07/2014
+																								15:26:30 </span></td>
+																						<td><span style="color: #003333">7971109999532927
+																						</span></td>
+																						<td><span style="color: #003333">P720_VIOC_TEST(3)
+																						</span></td>
+																						<td><span style="color: #003333">ded </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">share_idle_procs
+																						</span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333"> </span></td>
+																						<td><span style="color: #003333">0.0 </span></td>
+																						<td><span style="color: #003333">ded </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																						<td><span style="color: #003333">0 </span></td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</li>
+																	</ul></li>
+															</ul></li>
+													</ul>
+												</div></li>
+										</ul>
+									</div></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<address>
+				<center>
+					<Strong>Smart Monitor 1.0</Strong> Contact <Strong> Ye Hua
+					</Strong> Email : <a href="mailto:#">yehua@cn.ibm.com</a>
+				</center>
+			</address>
+		</div>
+		<div style="display: table"></div>
+
+
+	</div>
+
+	<script type="text/javascript">
+		InitColumnsSize();
+		
+		$(document).ready(function() {
+			$('#search').on('submit', function(e) {
+				e.preventDefault();
+				search(this.pattern);
+			})
+		})
+	</script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>
